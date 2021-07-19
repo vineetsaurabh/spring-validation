@@ -4,6 +4,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.vsaurabh.springvalidation.config.model.Request;
+import com.vsaurabh.springvalidation.config.model.ValidationModel;
+
 /**
  * an interface must be implemented by Validators
  * 
@@ -17,6 +20,6 @@ public interface Validator {
 	 * @return map of RequestData
 	 * and its corresponding model
 	 */
-	Map<RequestData, Class<? extends ValidationModel>> getRequestData();
+	Map<Request, Class<? extends ValidationModel>> getRequestData();
 
 }

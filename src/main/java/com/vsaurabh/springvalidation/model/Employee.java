@@ -1,14 +1,14 @@
 package com.vsaurabh.springvalidation.model;
 
 import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class Employee {
 	
-	@NotNull
+	@NotBlank
 	private String name;
 	
-	@DecimalMax("20000")
+	@DecimalMax("20000.00")
 	private Double salary;
 	
 	public Employee(String name, Double salary) {

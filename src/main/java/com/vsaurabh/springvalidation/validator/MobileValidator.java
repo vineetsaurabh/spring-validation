@@ -1,6 +1,5 @@
 package com.vsaurabh.springvalidation.validator;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.validation.constraints.DecimalMax;
@@ -8,21 +7,20 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.vsaurabh.springvalidation.config.validation.RequestData;
-import com.vsaurabh.springvalidation.config.validation.ValidationModel;
+import com.vsaurabh.springvalidation.config.model.Request;
+import com.vsaurabh.springvalidation.config.model.ValidationModel;
+import com.vsaurabh.springvalidation.config.validation.RequestDataBuilder;
 import com.vsaurabh.springvalidation.config.validation.Validator;
 
 @Component
 public class MobileValidator implements Validator {
+	
+	private static final String URL_PATTERN = "/**/mobile/{mob_id}/handset";
 
 	@Override
-	public Map<RequestData, Class<? extends ValidationModel>> getRequestData() {
-		RequestData urlPattern = new RequestData("/mobile/{mob_id}/handset", RequestMethod.POST);
-		Map<RequestData, Class<? extends ValidationModel>> map =  new HashMap<>();
-		map.put(urlPattern, Mobile.class);
-		return map;
+	public Map<Request, Class<? extends ValidationModel>> getRequestData() {
+		return RequestDataBuilder.of(Mobile.class).url(URL_PATTERN).post().put().build();
 	}
 
 	class Mobile implements ValidationModel {

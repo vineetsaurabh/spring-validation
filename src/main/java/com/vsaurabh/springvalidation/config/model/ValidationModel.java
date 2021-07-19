@@ -1,4 +1,4 @@
-package com.vsaurabh.springvalidation.config.validation;
+package com.vsaurabh.springvalidation.config.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
